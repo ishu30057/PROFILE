@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ishu Yadav | 2nd Year B.Tech CSE Portfolio</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans for UI and JetBrains Mono for Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            brand: {
+              bgDeep: '#0c0e29',       // Cosmic midnight indigo
+              bgSurface: '#151945',    // Luminous royal indigo-violet
+              card: 'rgba(27, 28, 77, 0.82)', 
+              cardHover: 'rgba(41, 41, 107, 0.95)',
+              border: 'rgba(244, 63, 94, 0.35)',
+              borderActive: 'rgba(236, 72, 153, 0.8)',
+              magenta: '#f43f5e',      // Vivid rose-magenta
+              pink: '#ec4899',         // Neon pink
+              purple: '#a855f7',       // Vivid violet
+              indigo: '#6366f1',       // High-saturation indigo
+              gold: '#fbbf24',         // Bright gold
+              amber: '#f97316',        // Fiery amber orange
+              cyan: '#06b6d4',         // Aqua cyan
+              teal: '#14b8a6',         // Bright mint teal
+              electric: '#38bdf8'      // Electric sky blue
+            }
+          },
+          animation: {
+            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'float': 'float 5s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-6px)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* High-Vibrancy Aurora Glow Mesh */
+    .bg-twilight-mesh {
+      background-color: #0b0d28;
+      background-image: 
+        radial-gradient(at 5% 10%, rgba(244, 63, 94, 0.32) 0px, transparent 48%),
+        radial-gradient(at 95% 15%, rgba(6, 182, 212, 0.34) 0px, transparent 48%),
+        radial-gradient(at 50% 50%, rgba(168, 85, 247, 0.25) 0px, transparent 55%),
+        radial-gradient(at 15% 85%, rgba(249, 115, 22, 0.28) 0px, transparent 48%),
+        radial-gradient(at 85% 90%, rgba(20, 184, 166, 0.28) 0px, transparent 48%),
+        linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+    }
+
+    /* Vibrant Glass Surface */
+    .glass-surface {
+      background: linear-gradient(135deg, rgba(25, 28, 74, 0.85) 0%, rgba(38, 24, 76, 0.8) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(236, 72, 153, 0.28);
+      box-shadow: 0 10px 30px -10px rgba(168, 85, 247, 0.2);
+    }
+
+    .glass-surface:hover {
+      border-color: rgba(244, 63, 94, 0.7);
+      box-shadow: 0 18px 40px -8px rgba(244, 63, 94, 0.38), 0 0 20px rgba(6, 182, 212, 0.25);
+    }
+
+    .glass-nav {
+      background: rgba(12, 14, 41, 0.92);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(236, 72, 153, 0.25);
+      box-shadow: 0 4px 20px rgba(168, 85, 247, 0.15);
+    }
+
+    /* Gradient Typography */
+    .gradient-sunset {
+      background: linear-gradient(135deg, #fde047 0%, #fb923c 28%, #f43f5e 65%, #c084fc 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gradient-tech {
+      background: linear-gradient(135deg, #22d3ee 0%, #38bdf8 30%, #a855f7 70%, #ec4899 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 9px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0c0e29;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #f43f5e, #a855f7);
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #06b6d4;
+    }
+  </style>
+</head>
+
+<body class="bg-twilight-mesh text-slate-100 font-sans antialiased min-h-screen selection:bg-brand-pink selection:text-white flex flex-col justify-between">
+
+  <!-- Header Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="flex items-center gap-3.5 group">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-tr from-amber-400 via-rose-500 to-violet-600 flex items-center justify-center font-extrabold text-white shadow-lg shadow-pink-500/35 group-hover:scale-105 transition-transform duration-200">
+          <span class="tracking-tighter font-mono text-base font-black">IY</span>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-bold text-lg text-white group-hover:text-amber-300 transition-colors leading-tight">Ishu Yadav</span>
+          <span class="text-xs text-rose-300 font-mono tracking-tight font-semibold">2nd Year CSE • IET Agra</span>
+        </div>
+      </a>
+
+      <!-- Desktop Links -->
+      <nav class="hidden md:flex items-center gap-2 text-sm font-medium">
+        <a href="#who-i-am" class="px-3.5 py-2 rounded-xl text-slate-200 hover:text-amber-300 hover:bg-violet-900/40 transition-colors">1. Who I Am</a>
+        <a href="#skills" class="px-3.5 py-2 rounded-xl text-slate-200 hover:text-cyan-300 hover:bg-violet-900/40 transition-colors">2. My Skills</a>
+        <a href="#future-goal" class="px-3.5 py-2 rounded-xl text-slate-200 hover:text-rose-300 hover:bg-violet-900/40 transition-colors">3. My Future Goal</a>
+        <a href="#future-goal" class="ml-4 inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-pink-500/25 via-purple-500/25 to-cyan-500/25 border border-pink-400/50 text-pink-200 hover:border-pink-300 hover:bg-pink-500/40 transition-all shadow-md shadow-pink-500/20">
+          <span>Explore Vision</span>
+          <svg class="w-4 h-4 text-pink-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-toggle" aria-label="Toggle navigation" class="md:hidden p-2.5 rounded-xl text-slate-200 hover:text-white hover:bg-violet-900/60 border border-pink-500/40">
+        <svg id="hamburger-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg id="close-icon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden md:hidden glass-nav border-t border-pink-500/30 px-5 pt-3 pb-6 space-y-2">
+      <a href="#who-i-am" class="mobile-item block px-3 py-2.5 rounded-lg text-slate-200 hover:bg-violet-900/50 font-medium">1. Who I Am</a>
+      <a href="#skills" class="mobile-item block px-3 py-2.5 rounded-lg text-slate-200 hover:bg-violet-900/50 font-medium">2. My Skills</a>
+      <a href="#future-goal" class="mobile-item block px-3 py-2.5 rounded-lg text-slate-200 hover:bg-violet-900/50 font-medium">3. My Future Goal</a>
+    </div>
+  </header>
+
+  <main class="flex-grow pt-24">
+    <!-- Hero Section -->
+    <section id="hero" class="relative py-20 sm:py-28 overflow-hidden">
+      <!-- Glow Gradients -->
+      <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[360px] bg-gradient-to-r from-pink-500/25 via-purple-600/25 to-cyan-500/25 rounded-full blur-[140px] pointer-events-none"></div>
+      <div class="absolute top-1/2 right-10 w-[380px] h-[320px] bg-rose-500/20 rounded-full blur-[120px] pointer-events-none"></div>
+      <div class="absolute bottom-10 left-10 w-[380px] h-[280px] bg-cyan-400/20 rounded-full blur-[120px] pointer-events-none"></div>
+      
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        
+        <!-- University Badge -->
+        <div class="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-violet-950/80 border border-pink-500/40 text-xs sm:text-sm text-pink-200 mb-8 shadow-lg shadow-pink-500/15">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="font-mono font-bold text-amber-300">2nd Year</span>
+          <span class="text-pink-400">•</span>
+          <span class="font-mono text-cyan-200">B.Tech Computer Science &amp; Engineering</span>
+          <span class="text-pink-400">•</span>
+          <span class="text-white font-semibold">IET Agra</span>
+        </div>
+
+        <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.15]">
+          Hello, I'm <span class="gradient-sunset">Ishu Yadav</span>
+        </h1>
+
+        <p class="max-w-2xl mx-auto text-base sm:text-xl text-indigo-100 leading-relaxed font-normal mb-10">
+          An 18-year-old curious, hardworking, ambitious, and adventurous <strong class="text-amber-300 font-semibold">2nd-year Computer Science</strong> student passionate about technology, learning, and crafting a life filled with world exploration and new experiences.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="#who-i-am" class="px-8 py-3.5 rounded-xl bg-gradient-to-r from-amber-400 via-rose-500 to-pink-600 hover:from-amber-300 hover:to-rose-400 text-white font-bold shadow-lg shadow-rose-500/35 transition-all duration-300 transform hover:-translate-y-0.5">
+            About Me
+          </a>
+          <a href="#skills" class="px-8 py-3.5 rounded-xl bg-violet-950/80 hover:bg-violet-900/90 text-cyan-300 border border-cyan-400/40 font-bold shadow-md shadow-cyan-500/20 transition-all duration-300">
+            View My Skills
+          </a>
+          <a href="#future-goal" class="px-8 py-3.5 rounded-xl bg-gradient-to-r from-purple-600/30 to-pink-600/30 hover:from-purple-600/40 hover:to-pink-600/40 text-pink-200 border border-pink-400/50 font-bold shadow-md shadow-purple-500/20 transition-all duration-300">
+            My Future Goal
+          </a>
+        </div>
+
+        <!-- Four Personality Pillar Chips -->
+        <div class="mt-14 pt-8 border-t border-purple-800/40 flex flex-wrap items-center justify-center gap-3 sm:gap-6 text-xs sm:text-sm font-mono">
+          <div class="px-3.5 py-1.5 rounded-lg bg-violet-950/70 border border-amber-400/40 flex items-center gap-2 shadow-sm">
+            <span class="text-amber-400 font-bold">01.</span> <span class="text-amber-200 font-medium">Curious</span>
+          </div>
+          <div class="px-3.5 py-1.5 rounded-lg bg-violet-950/70 border border-orange-400/40 flex items-center gap-2 shadow-sm">
+            <span class="text-orange-400 font-bold">02.</span> <span class="text-orange-200 font-medium">Hardworking</span>
+          </div>
+          <div class="px-3.5 py-1.5 rounded-lg bg-violet-950/70 border border-rose-400/40 flex items-center gap-2 shadow-sm">
+            <span class="text-rose-400 font-bold">03.</span> <span class="text-rose-200 font-medium">Ambitious</span>
+          </div>
+          <div class="px-3.5 py-1.5 rounded-lg bg-violet-950/70 border border-cyan-400/40 flex items-center gap-2 shadow-sm">
+            <span class="text-cyan-400 font-bold">04.</span> <span class="text-cyan-200 font-medium">Adventurous</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 1: WHO I AM -->
+    <section id="who-i-am" class="py-20 lg:py-28 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="flex items-center gap-3 mb-4">
+          <span class="px-3 py-1 rounded-md bg-pink-500/20 text-pink-300 font-mono text-xs uppercase tracking-wider font-bold border border-pink-400/40">01 / Profile</span>
+          <div class="h-px bg-gradient-to-r from-pink-500/50 to-transparent flex-grow max-w-sm"></div>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-12">
+          Who <span class="gradient-sunset">I Am</span>
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Image Container 1: WHO I AM (Using who i am.jpeg) -->
+          <div class="lg:col-span-5 order-2 lg:order-1">
+            <div class="relative group rounded-3xl overflow-hidden glass-surface p-2.5 transition-all duration-300">
+              <div class="absolute -inset-0.5 bg-gradient-to-tr from-amber-400 via-rose-500 to-purple-600 rounded-3xl opacity-50 group-hover:opacity-90 transition duration-300 blur-sm"></div>
+              
+              <div class="relative bg-slate-900 rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center">
+                <img 
+                  id="img-who-i-am" 
+                  src="who i am.jpeg" 
+                  alt="Ishu Yadav - Who I Am" 
+                  class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105 cursor-pointer"
+                  onclick="openLightbox(this.src, 'Who I Am — Ishu Yadav (2nd Year CSE Student at IET Agra)')"
+                >
+
+                <!-- Overlay Badge -->
+                <div class="absolute bottom-2.5 left-2.5 right-2.5 bg-violet-950/85 backdrop-blur-md border border-pink-400/40 px-3 py-2 rounded-xl flex items-center justify-between pointer-events-none">
+                  <span class="text-[11px] font-bold text-amber-300 font-mono">01. Who I Am</span>
+                  <span class="text-[10px] text-pink-200 font-mono">who i am.jpeg</span>
+                </div>
+              </div>
+            </div>
+            <p class="text-xs text-center text-pink-300/80 mt-2 font-mono">Click image to expand</p>
+          </div>
+
+          <!-- Narrative Content -->
+          <div class="lg:col-span-7 order-1 lg:order-2 space-y-6">
+            <div class="space-y-5 text-indigo-100 text-base sm:text-lg leading-relaxed">
+              <p>
+                My name is <strong class="text-white font-semibold">Ishu Yadav</strong>. I am <strong class="text-white font-semibold">18 years old</strong> and currently in my <strong class="text-amber-300 font-semibold">2nd year of B.Tech in Computer Science and Engineering at IET Agra</strong>.
+              </p>
+              
+              <p>
+                I am <span class="text-amber-300 font-medium">curious, hardworking, ambitious, and adventurous</span>. I genuinely enjoy learning about technology and improving my technical skills with every passing day. At the same time, I don't want my life to be limited to a repetitive routine or a boring 9-to-5 lifestyle. I want to experience new things and have an exciting and adventurous life.
+              </p>
+
+              <p>
+                I love travelling and want to travel around the whole world. I want to explore different countries and cultures, try new cuisines from around the world, and visit exciting places. Amusement parks are especially interesting to me, and I would love to visit them frequently.
+              </p>
+
+              <div class="p-4 rounded-2xl bg-gradient-to-r from-pink-500/20 via-purple-500/15 to-transparent border border-pink-500/40 text-pink-200 font-medium shadow-inner">
+                "I want my life to include exploration, fun, freedom, and new experiences."
+              </div>
+            </div>
+
+            <!-- Key Profile Metrics -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-2">
+              <div class="glass-surface p-4 rounded-2xl">
+                <span class="text-xs text-pink-300/80 font-mono block">Current Program</span>
+                <span class="text-base font-bold text-white mt-1 block">B.Tech CSE</span>
+                <span class="text-xs text-amber-300 font-semibold">2nd Year • IET Agra</span>
+              </div>
+              <div class="glass-surface p-4 rounded-2xl">
+                <span class="text-xs text-pink-300/80 font-mono block">Age</span>
+                <span class="text-base font-bold text-white mt-1 block">18 Years</span>
+                <span class="text-xs text-cyan-300 font-medium">Undergraduate</span>
+              </div>
+              <div class="glass-surface p-4 rounded-2xl col-span-2 sm:col-span-1">
+                <span class="text-xs text-pink-300/80 font-mono block">Passions</span>
+                <span class="text-base font-bold text-teal-300 mt-1 block">Tech &amp; Travel</span>
+                <span class="text-xs text-rose-300 font-medium">World Exploration</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: MY SKILLS -->
+    <section id="skills" class="py-20 lg:py-28 relative bg-violet-950/40 border-y border-pink-500/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="flex items-center gap-3 mb-4">
+          <span class="px-3 py-1 rounded-md bg-cyan-500/20 text-cyan-300 font-mono text-xs uppercase tracking-wider font-bold border border-cyan-400/40">02 / Expertise</span>
+          <div class="h-px bg-gradient-to-r from-cyan-500/50 to-transparent flex-grow max-w-sm"></div>
+        </div>
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+          <div>
+            <h2 class="text-3xl sm:text-5xl font-extrabold text-white">
+              My <span class="gradient-tech">Skills</span>
+            </h2>
+            <p class="text-indigo-200 text-sm sm:text-base mt-2 max-w-xl">
+              Languages, computer science foundations, and emerging AI domains that define my engineering journey as a 2nd year CSE student.
+            </p>
+          </div>
+
+          <!-- Skill Category Filters -->
+          <div class="flex flex-wrap gap-2" id="skill-filters">
+            <button class="filter-btn active px-3.5 py-1.5 rounded-lg text-xs font-mono font-bold transition-all bg-gradient-to-r from-amber-400 to-rose-500 text-slate-950 shadow-md shadow-rose-500/30" data-filter="all">All (10)</button>
+            <button class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium transition-all bg-violet-900/60 text-slate-200 border border-purple-500/30 hover:border-pink-400 hover:text-white" data-filter="lang-web">Languages &amp; Web</button>
+            <button class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium transition-all bg-violet-900/60 text-slate-200 border border-purple-500/30 hover:border-cyan-400 hover:text-white" data-filter="core-cs">Core CS &amp; Data</button>
+            <button class="filter-btn px-3.5 py-1.5 rounded-lg text-xs font-mono font-medium transition-all bg-violet-900/60 text-slate-200 border border-purple-500/30 hover:border-rose-400 hover:text-white" data-filter="ai-tech">AI &amp; Emerging</button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          
+          <!-- Skills 10-Card Grid -->
+          <div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-4" id="skills-container">
+            
+            <!-- Skill 1: C Programming -->
+            <div class="skill-card glass-surface p-5 rounded-2xl transition-all duration-300 group" data-category="lang-web">
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-10 h-10 rounded-xl bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center font-mono font-bold text-cyan-300 group-hover:bg-cyan-400 group-hover:text-slate-950 transition-colors">
+                  C
+                </div>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-violet-950/80 text-cyan-300 border border-cyan-500/40 font-semibold">Foundation</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-cyan-300 transition-colors">C Programming</h3>
+              <p class="text-xs text-indigo-200 mt-1 leading-relaxed">Procedural logic, structured programming, pointers, and memory fundamentals.</p>
+            </div>
+
+            <!-- Skill 2: Python -->
+            <div class="skill-card glass-surface p-5 rounded-2xl transition-all duration-300 group" data-category="lang-web">
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center font-mono font-bold text-amber-300 group-hover:bg-amber-400 group-hover:text-slate-950 transition-colors">
+                  Py
+                </div>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-violet-950/80 text-amber-300 border border-amber-500/40 font-semibold">Core</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-amber-300 transition-colors">Python</h3>
+              <p class="text-xs text-indigo-200 mt-1 leading-relaxed">Versatile programming, scripting, problem-solving, and foundation for AI/ML.</p>
+            </div>
+
+            <!-- Skill 3: HTML -->
+            <div class="skill-card glass-surface p-5 rounded-2xl transition-all duration-300 group" data-category="lang-web">
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-10 h-10 rounded-xl bg-orange-500/20 border border-orange-400/40 flex items-center justify-center font-mono font-bold text-orange-300 group-hover:bg-orange-500 group-hover:text-white transition-colors">
+                  &lt;&gt;
+                </div>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-violet-950/80 text-orange-300 border border-orange-500/40 font-semibold">Web</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-orange-300 transition-colors">HTML</h3>
+              <p class="text-xs text-indigo-200 mt-1 leading-relaxed">Semantic layout, modern web standards, and structural content development.</p>
+            </div>
+
+            <!-- Skill 4: CSS -->
+            <div class="skill-card glass-surface p-5 rounded-2xl transition-all duration-300 group" data-category="lang-web">
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-10 h-10 rounded-xl bg-sky-500/20 border border-sky-400/40 flex items-center justify-center font-mono font-bold text-sky-300 group-hover:bg-sky-400 group-hover:text-slate-950 transition-colors">
+                  #
+                </div>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-violet-950/80 text-sky-300 border border-sky-500/40 font-semibold">Styling</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-sky-300 transition-colors">CSS</h3>
+              <p class="text-xs text-indigo-200 mt-1 leading-relaxed">Responsive visual styling, flexbox, grid frameworks, and interface aesthetics.</p>
+            </div>
+
+            <!-- Skill 5: Basic JavaScript -->
+            <div class="skill-card glass-surface p-5 rounded-2xl transition-all duration-300 group" data-category="lang-web">
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-10 h-10 rounded-xl bg-yellow-500/20 border border-yellow-400/40 flex items-center justify-center font-mono font-bold text-yellow-300 group-hover:bg-yellow-400 group-hover:text-slate-950 transition-colors">
+                  JS
+                </div>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-violet-950/80 text-yellow-300 border border-yellow-500/40 font-semibold">Interactive</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-yellow-300 transition-colors">Basic JavaScript</h3>
+              <p class="text-xs text-indigo-200 mt-1 leading-relaxed">Client-side scripting, event handling, and dynamic front-end behaviors.</p>
+            </div>
+
+            <!-- Skill 6: Data Structures and Algorithms -->
+            <div class="skill-card glass-surface p-5 rounded-2xl transition-all duration-300 group" data-category="core-cs">
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/20 border border-emerald-400/40 flex items-center justify-center font-mono font-bold text-emerald-300 group-hover:bg-emerald-400 group-hover:text-slate-950 transition-colors">
+                  DSA
+                </div>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 font-semibold">Learning</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-emerald-300 transition-colors">Data Structures &amp; Algorithms</h3>
+              <p class="text-xs text-indigo-200 mt-1 leading-relaxed">Computational problem solving, arrays, lists, trees, and time-space efficiency.</p>
+            </div>
+
+            <!-- Skill 7: DBMS -->
+            <div class="skill-card glass-surface p-5 rounded-2xl transition-all duration-300 group" data-category="core-cs">
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-10 h-10 rounded-xl bg-teal-500/20 border border-teal-400/40 flex items-center justify-center font-mono font-bold text-teal-300 group-hover:bg-teal-400 group-hover:text-slate-950 transition-colors">
+                  DB
+                </div>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-teal-500/20 text-teal-300 border border-teal-400/40 font-semibold">Learning</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-teal-300 transition-colors">DBMS</h3>
+              <p class="text-xs text-indigo-200 mt-1 leading-relaxed">Database structures, relational integrity, queries, and schema architecture.</p>
+            </div>
+
+            <!-- Skill 8: Artificial Intelligence -->
+            <div class="skill-card glass-surface p-5 rounded-2xl transition-all duration-300 group" data-category="ai-tech">
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-10 h-10 rounded-xl bg-purple-500/20 border border-purple-400/40 flex items-center justify-center font-mono font-bold text-purple-300 group-hover:bg-purple-400 group-hover:text-white transition-colors">
+                  AI
+                </div>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 border border-purple-400/40 font-semibold">Learning</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-purple-300 transition-colors">Artificial Intelligence</h3>
+              <p class="text-xs text-indigo-200 mt-1 leading-relaxed">Core concepts of intelligent systems, logic, automation, and decision systems.</p>
+            </div>
+
+            <!-- Skill 9: Machine Learning -->
+            <div class="skill-card glass-surface p-5 rounded-2xl transition-all duration-300 group" data-category="ai-tech">
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-10 h-10 rounded-xl bg-rose-500/20 border border-rose-400/40 flex items-center justify-center font-mono font-bold text-rose-300 group-hover:bg-rose-400 group-hover:text-white transition-colors">
+                  ML
+                </div>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 border border-rose-400/40 font-semibold">Learning</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-rose-300 transition-colors">Machine Learning</h3>
+              <p class="text-xs text-indigo-200 mt-1 leading-relaxed">Supervised and unsupervised models, statistical analysis, and predictive patterns.</p>
+            </div>
+
+            <!-- Skill 10: Generative AI -->
+            <div class="skill-card glass-surface p-5 rounded-2xl transition-all duration-300 group" data-category="ai-tech">
+              <div class="flex items-center justify-between mb-3">
+                <div class="w-10 h-10 rounded-xl bg-pink-500/20 border border-pink-400/40 flex items-center justify-center font-mono font-bold text-pink-300 group-hover:bg-pink-400 group-hover:text-white transition-colors">
+                  Gen
+                </div>
+                <span class="text-xs font-mono px-2 py-0.5 rounded bg-pink-500/20 text-pink-300 border border-pink-400/40 font-semibold">Learning</span>
+              </div>
+              <h3 class="text-lg font-bold text-white group-hover:text-pink-300 transition-colors">Generative AI</h3>
+              <p class="text-xs text-indigo-200 mt-1 leading-relaxed">Foundation models, generative architectures, creative tech, and modern AI toolsets.</p>
+            </div>
+
+          </div>
+
+          <!-- Image Container 2: MY SKILLS (Using my skills.jpeg) -->
+          <div class="lg:col-span-4 sticky top-28">
+            <div class="relative group rounded-3xl overflow-hidden glass-surface p-2.5 transition-all duration-300">
+              <div class="absolute -inset-0.5 bg-gradient-to-tr from-cyan-400 via-teal-400 to-pink-500 rounded-3xl opacity-50 group-hover:opacity-90 transition duration-300 blur-sm"></div>
+              
+              <div class="relative bg-slate-900 rounded-2xl overflow-hidden aspect-[4/3] sm:aspect-[4/5] flex items-center justify-center">
+                <img 
+                  id="img-skills" 
+                  src="my skills.jpeg" 
+                  alt="Ishu Yadav - My Skills" 
+                  class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105 cursor-pointer"
+                  onclick="openLightbox(this.src, 'My Skills — Programming, Web, Core CS & AI Stack')"
+                >
+
+                <!-- Overlay Badge -->
+                <div class="absolute bottom-2.5 left-2.5 right-2.5 bg-violet-950/85 backdrop-blur-md border border-cyan-400/40 px-3 py-2 rounded-xl flex items-center justify-between pointer-events-none">
+                  <span class="text-[11px] font-bold text-cyan-300 font-mono">02. My Skills</span>
+                  <span class="text-[10px] text-pink-200 font-mono">my skills.jpeg</span>
+                </div>
+              </div>
+            </div>
+            <p class="text-xs text-center text-cyan-300/80 mt-2 font-mono">Click image to expand</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: MY FUTURE GOAL -->
+    <section id="future-goal" class="py-20 lg:py-28 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <!-- Section Header -->
+        <div class="flex items-center gap-3 mb-4">
+          <span class="px-3 py-1 rounded-md bg-amber-500/20 text-amber-300 font-mono text-xs uppercase tracking-wider font-bold border border-amber-400/40">03 / Aspiration</span>
+          <div class="h-px bg-gradient-to-r from-amber-500/50 to-transparent flex-grow max-w-sm"></div>
+        </div>
+        <h2 class="text-3xl sm:text-5xl font-extrabold text-white mb-12">
+          My <span class="gradient-sunset">Future Goal</span>
+        </h2>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <!-- Narrative & Vision Highlights -->
+          <div class="lg:col-span-7 space-y-6">
+            <div class="glass-surface p-6 sm:p-8 rounded-3xl border-l-4 border-l-rose-500 space-y-6">
+              
+              <h3 class="text-2xl sm:text-3xl font-extrabold text-white">
+                Technology Career &amp; A Life of Adventure
+              </h3>
+
+              <p class="text-indigo-100 leading-relaxed text-base sm:text-lg">
+                My future goal is to <strong class="text-amber-300 font-semibold">build a successful career in the technology/AI field</strong> while also having the freedom to travel around the world, explore different countries and cultures, try cuisines from different parts of the world, visit amusement parks, and experience adventure, fun, and new things throughout my life.
+              </p>
+
+              <!-- Adventure & Career Facets -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                
+                <div class="p-4 rounded-2xl bg-violet-950/70 border border-cyan-400/30 flex items-start gap-3.5">
+                  <div class="w-9 h-9 rounded-xl bg-cyan-500/20 border border-cyan-400/40 flex items-center justify-center text-cyan-300 shrink-0">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white">Tech &amp; AI Sector</h4>
+                    <p class="text-xs text-indigo-200 mt-0.5">Building a meaningful and thriving career in modern technology.</p>
+                  </div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-violet-950/70 border border-amber-400/30 flex items-start gap-3.5">
+                  <div class="w-9 h-9 rounded-xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-300 shrink-0">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white">World Travel</h4>
+                    <p class="text-xs text-indigo-200 mt-0.5">Exploring diverse nations, international cultures, and tasting global cuisines.</p>
+                  </div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-violet-950/70 border border-rose-400/30 flex items-start gap-3.5">
+                  <div class="w-9 h-9 rounded-xl bg-rose-500/20 border border-rose-400/40 flex items-center justify-center text-rose-300 shrink-0">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white">Amusement Parks</h4>
+                    <p class="text-xs text-indigo-200 mt-0.5">Frequently visiting world-class theme parks and experiencing thrilling rides.</p>
+                  </div>
+                </div>
+
+                <div class="p-4 rounded-2xl bg-violet-950/70 border border-pink-400/30 flex items-start gap-3.5">
+                  <div class="w-9 h-9 rounded-xl bg-pink-500/20 border border-pink-400/40 flex items-center justify-center text-pink-300 shrink-0">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-bold text-white">Freedom &amp; Adventure</h4>
+                    <p class="text-xs text-indigo-200 mt-0.5">Experiencing life beyond routine, characterized by curiosity and joy.</p>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- Image Container 3: MY FUTURE GOAL (Using future.jpeg) -->
+          <div class="lg:col-span-5">
+            <div class="relative group rounded-3xl overflow-hidden glass-surface p-2.5 transition-all duration-300">
+              <div class="absolute -inset-0.5 bg-gradient-to-tr from-amber-400 via-rose-500 to-cyan-400 rounded-3xl opacity-50 group-hover:opacity-90 transition duration-300 blur-sm"></div>
+              
+              <div class="relative bg-slate-900 rounded-2xl overflow-hidden aspect-[4/3] flex items-center justify-center">
+                <img 
+                  id="img-future-goal" 
+                  src="future.jpeg" 
+                  alt="Ishu Yadav - My Future Goal" 
+                  class="w-full h-full object-cover rounded-xl transition-transform duration-500 group-hover:scale-105 cursor-pointer"
+                  onclick="openLightbox(this.src, 'My Future Goal — Tech Career, World Travel & Global Adventure')"
+                >
+
+                <!-- Overlay Badge -->
+                <div class="absolute bottom-2.5 left-2.5 right-2.5 bg-violet-950/85 backdrop-blur-md border border-rose-400/40 px-3 py-2 rounded-xl flex items-center justify-between pointer-events-none">
+                  <span class="text-[11px] font-bold text-amber-300 font-mono">03. My Future Goal</span>
+                  <span class="text-[10px] text-pink-200 font-mono">future.jpeg</span>
+                </div>
+              </div>
+            </div>
+            <p class="text-xs text-center text-pink-300/80 mt-2 font-mono">Click image to expand</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-pink-500/30 bg-brand-bgDeep py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+      
+      <!-- Identity -->
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
+          <span class="font-bold text-white text-base">Ishu Yadav</span>
+        </div>
+        <p class="text-xs text-pink-200/90 mt-1 font-mono">
+          2nd Year B.Tech Computer Science and Engineering • IET Agra
+        </p>
+      </div>
+
+      <!-- Quick Section Anchor Links -->
+      <div class="flex flex-wrap items-center gap-6 text-sm text-indigo-200 font-medium">
+        <a href="#who-i-am" class="hover:text-amber-300 transition-colors">Who I Am</a>
+        <a href="#skills" class="hover:text-cyan-300 transition-colors">My Skills</a>
+        <a href="#future-goal" class="hover:text-rose-300 transition-colors">My Future Goal</a>
+      </div>
+
+      <!-- Back to Top Button -->
+      <div>
+        <button id="back-to-top" aria-label="Scroll back to top" class="p-3 rounded-xl bg-violet-900/60 border border-pink-500/40 hover:border-amber-400 text-pink-200 hover:text-white transition-all shadow-sm">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal for Full Image Expansion -->
+  <div id="lightbox-modal" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden flex items-center justify-center p-4">
+    <div class="relative max-w-4xl w-full bg-slate-900 border border-pink-500/40 rounded-3xl overflow-hidden shadow-2xl p-2">
+      <button onclick="closeLightbox()" class="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-slate-950/70 hover:bg-slate-950 text-white flex items-center justify-center border border-white/20 transition-all">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <img id="lightbox-img" src="" alt="Expanded View" class="w-full max-h-[80vh] object-contain rounded-2xl">
+      <p id="lightbox-caption" class="text-center font-mono text-sm text-pink-200 py-3 px-4"></p>
+    </div>
+  </div>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+    const mobileLinks = document.querySelectorAll('.mobile-item');
+
+    if (mobileToggle) {
+      mobileToggle.addEventListener('click', () => {
+        const isClosed = mobileMenu.classList.contains('hidden');
+        if (isClosed) {
+          mobileMenu.classList.remove('hidden');
+          hamburgerIcon.classList.add('hidden');
+          closeIcon.classList.remove('hidden');
+        } else {
+          mobileMenu.classList.add('hidden');
+          hamburgerIcon.classList.remove('hidden');
+          closeIcon.classList.add('hidden');
+        }
+      });
+    }
+
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        hamburgerIcon.classList.remove('hidden');
+        closeIcon.classList.add('hidden');
+      });
+    });
+
+    // Skill Filter Handler
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const skillCards = document.querySelectorAll('.skill-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-gradient-to-r', 'from-amber-400', 'to-rose-500', 'text-slate-950', 'font-bold');
+          b.classList.add('bg-violet-900/60', 'text-slate-200');
+        });
+        btn.classList.add('bg-gradient-to-r', 'from-amber-400', 'to-rose-500', 'text-slate-950', 'font-bold');
+        btn.classList.remove('bg-violet-900/60', 'text-slate-200');
+
+        const selectedFilter = btn.getAttribute('data-filter');
+
+        skillCards.forEach(card => {
+          const cardCategory = card.getAttribute('data-category');
+          if (selectedFilter === 'all' || cardCategory === selectedFilter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Back to Top Handler
+    const backToTopBtn = document.getElementById('back-to-top');
+    if (backToTopBtn) {
+      backToTopBtn.addEventListener('click', () => {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      });
+    }
+
+    // Lightbox Modal
+    function openLightbox(src, caption) {
+      const modal = document.getElementById('lightbox-modal');
+      const img = document.getElementById('lightbox-img');
+      const cap = document.getElementById('lightbox-caption');
+      img.src = src;
+      cap.textContent = caption;
+      modal.classList.remove('hidden');
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightbox-modal');
+      modal.classList.add('hidden');
+    }
+
+    const lightboxModal = document.getElementById('lightbox-modal');
+    if (lightboxModal) {
+      lightboxModal.addEventListener('click', (e) => {
+        if (e.target.id === 'lightbox-modal') {
+          closeLightbox();
+        }
+      });
+    }
+  </script>
+</body>
+</html>
